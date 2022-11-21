@@ -1,27 +1,25 @@
 <?php
 $con=mysqli_connect("localhost","root","","loginsystem");
 if(isset($_POST['login_submit'])){
-  if(!empty($_POST['username']&&['password'])){
 	$username=$_POST['username'];
 	$password=$_POST['password'];
 	$query="select * from logintb where username='$username' and password='$password'";
 	$result=mysqli_query($con,$query);
-	if(mysqli_num_rows($result)==1)
+	if(($result))
 	{
-		header("Location:admin-panel.php");
+    echo "<script>window.open('index.php','_self')</script>";
 	
-}
+  }
 	else
     {
         echo "<script>alert('error login')</script>";
-        echo "<script>window.open('admin-panel.php','_self')</script>";
+        echo "<script>window.open('index.php','_self')</script>";
     }
     }
     else{
       echo "<script>alert('error login')</script>";
-      echo "<script>window.open('admin-panel.php','_self')</script>";
+      echo "<script>window.open('index.php','_self')</script>";
     }
-  }
 if(isset($_POST['pat_submit']))
 {
   if(!empty($_POST['fname']&&['lname']&&['email']&&['contact']))
