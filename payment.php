@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php include("func.php");
 $sql = "select contact from doctorapp";
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($con,$sql,);
+
 ?>
 <html>
 <head>
@@ -41,6 +42,7 @@ $result = mysqli_query($con,$sql);
         <tbody>
           <?php get_payment(); ?>
         </tbody>
+        <th>Total Amount</th><td><?php get_total_amount()?></td>
     </table>
     <div class="card-body" style="background-color:#3498DB;color:FFFFFF;">
     <form class="form-group" action="func.php" method="post">

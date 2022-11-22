@@ -280,7 +280,17 @@ function get_payment_done(){
 
   }
 }
-
+function get_total_amount(){
+  global $con;
+  $query="select sum(amount) from payment";
+  $result=mysqli_query($con,$query);
+  while($row=mysqli_fetch_array($result)){
+    $sum=$row['sum(amount)'];
+  }
+  echo"<tr>
+  <td>$sum</td>
+  <tr>";
+}
 ?>
 
 

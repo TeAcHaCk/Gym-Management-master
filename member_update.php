@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<?php include("func.php");?>
+<?php include("func.php");
+$sql = "select contact from doctorapp";
+$result = mysqli_query($con,$sql,);
+?>
 <html>
 <head>
 	<title>Members details</title>
@@ -44,7 +47,15 @@
     <label>Last Name</label>
     <input type="text" name="lname" class="form-control"><br>
     <label>Member id</label>
-    <input type="text" name="contact" class="form-control"><br>
+    <select class="form-control" name="customer_id">
+
+<?php while($row2 = mysqli_fetch_array($result)):;?>
+
+<option value="<?php echo $row2[0];?>"><?php echo $row2[0];?></option>
+
+<?php endwhile;?>
+
+</select><br>
     <input type="submit" class="btn btn-primary" name="update_members" value="Update">
         </form>
      </div>
