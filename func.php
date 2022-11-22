@@ -5,20 +5,18 @@ if(isset($_POST['login_submit'])){
 	$password=$_POST['password'];
 	$query="select * from logintb where username='$username' and password='$password'";
 	$result=mysqli_query($con,$query);
-	if(($result))
+	if(mysqli_num_rows($result)==1)
 	{
-    echo "<script>window.open('index.php','_self')</script>";
-	
-  }
+        if ($username =='admin' && $password=='pass')
+        {
+        header("Location:admin-panel.php");
+    }
+}
 	else
     {
         echo "<script>alert('error login')</script>";
         echo "<script>window.open('index.php','_self')</script>";
     }
-    }
-    else{
-      echo "<script>alert('error login')</script>";
-      echo "<script>window.open('index.php','_self')</script>";
     }
 if(isset($_POST['pat_submit']))
 {
@@ -167,7 +165,7 @@ if(isset($_POST['pat_submit']))
     $query="select * from doctorapp";
     $result=mysqli_query($con,$query);
     while ($row=mysqli_fetch_array($result)){
-         $fname=$row ['fname'];
+    $fname=$row ['fname'];
     $lname=$row['lname'];
     $email=$row['email'];
     $contact=$row['contact'];
@@ -256,7 +254,32 @@ function get_payment_history(){
 
     }
 }
+function get_payment_done(){
+  global $con;
+  $query="select d.fname,d.lname,d.contact,p.payment_id,p.amount,p.customer_id,p.payment_type from doctorapp as d join payment as p on d.contact=p.customer_id";
+  $result=mysqli_query($con,$query);
+  while($row=mysqli_fetch_array($result)){
+      $fname=$row['fname'];
+      $lname=$row['lname'];
+      $contact=$row['contact'];
+      $payment_id=$row ['payment_id'];
+      $amount=$row['amount'];
+      $customer_id=$row['customer_id'];
+      $payment_type=$row['payment_type'];
+      // $customer_name=$row['customer_name'];
+      
+      echo"<tr>
+      <td>$fname</td>
+      <td>$lname</td>
+      <td>$contact</td>
+      <td>$payment_id</td>
+      <td>$amount</td>
+      <td>$customer_id</td>
+      <td>$payment_type</td>
+      </tr>";
 
+  }
+}
 
 ?>
 

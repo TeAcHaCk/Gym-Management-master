@@ -30,18 +30,18 @@ $result1 = mysqli_query($connect, $query);
       
    
        
- <div class="jumbotron" style="border-radius:0;background:url('images/3.jpg');background-size:cover;height:400px;"></div>
+ <div class="jumbotron" style="border-radius:0;background:url('images/7.jpg');background-size:cover;height:400px;"></div>
    <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
-                <a href="" class="list-group-item active"
-                   >Members</a>
+                <a href="" class="list-group-item active">Members</a>
                 <a href="trainer_details.php" class="list-group-item">Member details</a>
+                <a href="member_update.php" class="list-group-item">Member Update</a>
                 <a href="package.php" class="list-group-item">Package details</a>
                 <a href="payment.php" class="list-group-item">Payments</a>
-                <a href="member_update.php" class="list-group-item">Member Update</a>
                 <a href="payment_history.php" class="list-group-item">Payment History</a>
+                <a href="payment_done.php" class="list-group-item">Payment Completed</a>
             </div>
             <hr>
             <div class="list-group">

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<?php include("func.php");?>
+<?php include("func.php");
+$sql = "select contact from doctorapp";
+$result = mysqli_query($con,$sql);
+?>
 <html>
 <head>
 	<title>Members details</title>
@@ -55,14 +58,32 @@
 <input type="text" name="Payment_id" class="form-control"><br>
  
                     <label>Amount</label>
-                    <input type="text" name="Amount" class="form-control"><br>
-                    <label>Customer ID</label>
-                    <input type="text" name="customer_id" class="form-control"><br>
-                   <!-- <label>Customer Name</label> -->
-                    <!-- <input type="text" name="customer_name" class="form-control"><br> -->
+                    <select class="form-control" name="Amount"><br>
+            <option value="800">800</option>
+            <option value="1000">1000</option>
+            <option value="1500">1500</option>
+                    </select>
+        <br>
+                   <label>Customer ID</label>
+                    <select class="form-control" name="customer_id">
+
+<?php while($row2 = mysqli_fetch_array($result)):;?>
+
+<option value="<?php echo $row2[0];?>"><?php echo $row2[0];?></option>
+
+<?php endwhile;?>
+
+</select>
+<br>
                     <label>Payment Type</label>
-                    
-<input type="text" name="payment_type" class="form-control"><br> 
+        <select class="form-control" name="payment_type">
+
+            <option value="Cash">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="IMPS">IMPS</option>
+            <option value="Net Banking">Net Banking</option>
+        </select>
+        <br>
 <input type="submit" class="btn btn-primary" name="pay_submit" value="PAY">
      </div>
     </div>
