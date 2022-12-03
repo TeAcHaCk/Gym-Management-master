@@ -5,7 +5,7 @@ In this project, I have used joins, triggers, procedures, and aggrigate function
 # Trigger Function
 When a payment is deleted from the table, it is saved in Payment_history.
 
-# Procudure Fucntion
+# Procedure Fucntion
 You update a member's first name, last name, and email address.
 
 # Installation Process
